@@ -29,9 +29,16 @@ function toggleTime(e) {
     if (e.target.id == "resume") {
         pause.id = "pause"
         pause.innerText = "pause"
+        plus.disabled = false
+        minus.disabled = false
+        heart.disabled = false
         myInterval = window.setInterval(increment, 1000)
     } else {
         clearInterval(myInterval);
+        plus.disabled = true
+        minus.disabled = true
+        heart.disabled = true
+
         pause.id = "resume";
         pause.innerText = "resume"
 
