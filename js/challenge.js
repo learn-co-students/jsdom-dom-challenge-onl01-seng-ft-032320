@@ -25,7 +25,27 @@ document.addEventListener("DOMContentLoaded", () => {
     likes.appendChild(li);
   });
 
-  pause.addEventListener("click", () => {});
+  pause.addEventListener("click", function (e) {
+    if (pause.innerText === "pause") {
+      pause.innerText = "resume";
+      clearInterval(count);
+
+      plus.disabled = true;
+      minus.disabled = true;
+      love.disabled = true;
+      submitBtn.disabled = true;
+    } else {
+      count = setInterval(function () {
+        counter.innerText++;
+      }, 1000);
+      pause.innerText = "pause";
+
+      plus.disabled = false;
+      minus.disabled = false;
+      love.disabled = false;
+      submitBtn.disabled = false;
+    }
+  });
 
   let list = document.querySelector("div#list");
   let form = document.querySelector("form#comment-form");
